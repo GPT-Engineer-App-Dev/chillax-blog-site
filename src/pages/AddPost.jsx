@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container, VStack, Heading, Input, Textarea, Button, useToast } from "@chakra-ui/react";
+import { Container, VStack, Heading, Input, Textarea, Button, useToast, useColorModeValue } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
 const AddPost = () => {
@@ -7,6 +7,9 @@ const AddPost = () => {
   const [content, setContent] = useState("");
   const toast = useToast();
   const navigate = useNavigate();
+
+  const bg = useColorModeValue("white", "gray.700");
+  const color = useColorModeValue("black", "white");
 
   const handleSubmit = () => {
     if (title && content) {
@@ -33,7 +36,7 @@ const AddPost = () => {
   };
 
   return (
-    <Container centerContent maxW="container.md" mt={10}>
+    <Container centerContent maxW="container.md" mt={10} bg={bg} color={color}>
       <VStack spacing={4} width="100%">
         <Heading as="h1" size="xl">Add New Post</Heading>
         <Input
